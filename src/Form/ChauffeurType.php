@@ -6,6 +6,7 @@ use App\Entity\Chauffeur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class ChauffeurType extends AbstractType
 {
@@ -16,7 +17,7 @@ class ChauffeurType extends AbstractType
             ->add('prenom')
             ->add('age')
             ->add('email')
-            ->add('password')
+            ->add('password',PasswordType::class)
             ->add('adresse')
             ->add('cni')
             ->add('numeroPermis')

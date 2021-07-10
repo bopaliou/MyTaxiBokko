@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Voiture;
+use App\Entity\Chauffeur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -18,7 +19,10 @@ class VoitureType extends AbstractType
             ->add('marque')
             ->add('model')
             ->add('NumeroAssurance')
-            ->add('chauffeur',EntityType::class)
+            ->add('chauffeur',EntityType::class,[
+                'class' => Chauffeur::class,
+                'choice_label' => 'username'
+            ])
         ;
     }
 

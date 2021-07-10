@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voiture index{% endblock %}
+{% block title %}Liste des voitures{% endblock %}
 
 {% block body %}
-    <h1>Voiture index</h1>
-
-    <table class="table">
-        <thead>
+    <h1>Liste des voitures</h1>
+    <div class="container-fluid mt-4">
+        <table class="table">
+        <thead class="table-dark">
             <tr>
-                <th>Id</th>
-                <th>Matricule</th>
-                <th>Marque</th>
-                <th>Model</th>
-                <th>NumeroAssurance</th>
-                <th>actions</th>
+                <th>ID</th>
+                <th>MATRICULE</th>
+                <th>MARQUE</th>
+                <th>MODEL</th>
+                <th>NUMERO ASSURANCE</th>
+                 <th>CHAUFFEUR</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -24,18 +25,24 @@
                 <td>{{ voiture.marque }}</td>
                 <td>{{ voiture.model }}</td>
                 <td>{{ voiture.NumeroAssurance }}</td>
+                <td>{{ voiture.chauffeur }}</td>
                 <td>
-                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}">show</a>
-                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}">edit</a>
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}"
+                        class="btn btn-outline-primary">Afficher</a>
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}"
+                    class="btn btn-outline-info">Editer</a> 
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('voiture_new') }}">Create new</a>
+    <a href="{{ path('voiture_new') }}"  class="btn btn-primary">Ajouter une voiture</a>
+
+    </div>
+
 {% endblock %}

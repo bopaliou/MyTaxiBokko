@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\VoitureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\VoitureRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass=VoitureRepository::class)
+ * @ApiResource
  */
 class Voiture
 {
